@@ -11,11 +11,18 @@ interface Movie {
 }
 
 const Search: React.FC = () => {
-  const navigate = useNavigate(); // Use useNavigate instead of useHistory
+  const navigate = useNavigate();
 
   const navigateToDetails = (id: number) => {
-    navigate(`/details/${id}`);
-  };
+    navigate(
+        '/details',
+        {
+          state: {
+            id:id
+          }
+        }
+    )  };
+
 
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState<Movie[]>([]);

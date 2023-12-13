@@ -4,13 +4,19 @@ import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import '../css/MovieDet.css';
 
 const TopRated = () => {
-  const navigate = useNavigate(); // Use useNavigate instead of useHistory
+    const navigate = useNavigate();
 
-  const navigateToDetails = (id: number) => {
-    navigate(`/details/${id}`);
-  };
+    const navigateToDetails = (id: number) => {
+        navigate(
+            '/details',
+            {
+                state: {
+                    id:id
+                }
+            }
+        )  };
 
-  return (
+    return (
     <div>
       <h2>
         <center>Top Rated Movies</center>
